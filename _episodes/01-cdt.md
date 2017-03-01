@@ -121,7 +121,7 @@ in a Console view which popped up below the editor window.
 Let's add some code to the program so it does something more useful. First, let's create a new file called `func.cpp` by selecting
 **File** > **New** > **Source File**. This will open the *New Source File* wizard. 
 
-<img src="{{ site.github.url }}/fig/01-cdt-new-file.png">
+<img src="{{ site.github.url }}/fig/01-cdt-new.png">
 
 All you need to do is enter the name of the file in the `Source file:` field and click on **Finish**. The new file will automatically
 open an editor window. If you left the default C++ source template setting the same, then the file will have a comment at the beginning.

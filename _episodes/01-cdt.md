@@ -85,7 +85,7 @@ opened the source code editor.
 
 The first editor feature you will notice is syntax highlighting (color coding of keywords and strings). Code folding is achieved by clicking
 on the + and - icons on the left side of the editor. Right clicking in the editor window will open a pop-up menu that will allow you
-to access a wide range of functions. See the [C/C++ editor](http://help.eclipse.org/neon/topic/org.eclipse.cdt.doc.user/concepts/cdt_c_editor.htm?cp=8_2_5_0) for complete details on how to use the editor.
+to access a wide range of functions. See the [C/C++ editor documentation](http://help.eclipse.org/neon/topic/org.eclipse.cdt.doc.user/concepts/cdt_c_editor.htm?cp=8_2_5_0) for complete details on how to use the editor.
 
 Other visible features include an outline view on the right hand edge of the editor. This view shows the high level structure of the code.
 At the bottom of the main window are three status fields. The first shows permissions for the file being edited (`Writable`, `Read Only`, etc.).

@@ -1,5 +1,5 @@
 ---
-title: "PyDev"
+title: "C/C++ Development Tools"
 teaching: 30
 exercises: 0
 questions:
@@ -68,20 +68,20 @@ In this case, we're going to choose **C++ Project**. Once you select this option
 There are many settings that you can change on this wizard, but for now, just give your project a name (e.g. "my_project"). 
 You should also choose `Hello World C++ Project` from the `Executable` folder in the **Project type:** box.
 
-<img src="{{ site.github.url }}/fig/03-cdt-new.png" width="50%"/>
+<img src="{{ site.github.url }}/fig/01-cdt-new.png" width="50%"/>
 
 When you're done, select the **Finish** button and you should see the project appear in the Project Explorer view.
 Clicking on the small triangle to the left of the project will open it. Open the `src` folder and you will see
 a file called `my_project.cpp` that was automatically created for you.
 
-<img src="{{ site.github.url }}/fig/03-cdt-first.png">
+<img src="{{ site.github.url }}/fig/01-cdt-first.png">
 
 ### Editor Features
 
 If you used the `Hello World C++ Project` template, CDT will have automatically created a file called `my_project.cpp` and
 opened the source code editor.
 
-<img src="{{ site.github.url }}/fig/03-cdt-editor.png">
+<img src="{{ site.github.url }}/fig/01-cdt-editor.png">
 
 The first editor feature you will notice is syntax highlighting (color coding of keywords and strings). Code folding is achieved by clicking
 on the + and - icons on the left side of the editor. Right clicking in the editor window will open a pop-up menu that will allow you
@@ -104,7 +104,7 @@ To compile the program, simply make sure the project is selected in the Projet E
 When you do this, you will see a new folder called `Debug` created. Open this folder, and you will see it now contains various Makefiles (and 
 files ending in `.mk`, as well as object files, and an executable. The program has now been compiled!
 
-<img src="{{ site.github.url }}/fig/03-cdt-build.png">
+<img src="{{ site.github.url }}/fig/01-cdt-build.png">
 
 ### Running My Program
 
@@ -112,7 +112,7 @@ Running the program is easy. Just make sure that the project is selected in the 
 **Run** > **Run**. Your program should immediately run, and the results will be displayed 
 in a Console view which popped up below the editor window.
 
-<img src="{{ site.github.url }}/fig/03-cdt-console.png">
+<img src="{{ site.github.url }}/fig/01-cdt-console.png">
 
 ### Fixing Bugs
 
@@ -121,19 +121,19 @@ we want to suspend execution when the `print(fib(10))` statement is about to be 
 *breakpoint* at line 13. Just point to the number `13` in the left hand margin and double click. You should now see a 
 breakpoint marker on the line.
 
-<img src="{{ site.github.url }}/fig/03-pydev-breakpoint.png">
+<img src="{{ site.github.url }}/fig/01-pydev-breakpoint.png">
 
 Now, to start the debugger just choose **Run** > **Debug**. The first time you do this, you will see the dialog
 below. This is just to warn you that the perspective is going to switch to the Debug perspective. If you want this
 to happen automatically in the future (and I would recommend doing so), check the box next to **Remember my decision** 
 and click on **Yes**.
 
-<img src="{{ site.github.url }}/fig/03-pydev-switch.png">
+<img src="{{ site.github.url }}/fig/01-pydev-switch.png">
 
 Whoa, everything just changed! Don't worry, this was supposed to happen. You are now in a Python debugger, and rather than
 having to launch a separate tool, PyDev has done it all for you. Here's what you should see:
 
-<img src="{{ site.github.url }}/fig/03-pydev-debug.png">
+<img src="{{ site.github.url }}/fig/01-pydev-debug.png">
 
 This looks a little complicated, but it is all layed out pretty logically:
 
@@ -154,23 +154,23 @@ Now, in order to work out the bug, we're going to tell the program to execute st
 what is going on. We do this by *single stepping* the program. There are three buttons on the toolbar that we can use
 to do this:
 
-* <img src="{{ site.github.url }}/fig/03-pydev-step-into.png"> **Step Into** - Single step the program, but when a function
+* <img src="{{ site.github.url }}/fig/01-pydev-step-into.png"> **Step Into** - Single step the program, but when a function
   call is encountered, step *into* the function.
-* <img src="{{ site.github.url }}/fig/03-pydev-step-over.png"> **Step Over** - Single step the program, but when a function
+* <img src="{{ site.github.url }}/fig/01-pydev-step-over.png"> **Step Over** - Single step the program, but when a function
   call is encountered, step *over* the function (i.e. execute the function as if it was a builtin function).
-* <img src="{{ site.github.url }}/fig/03-pydev-step-return.png"> **Step Return** - Single step the program, but return
+* <img src="{{ site.github.url }}/fig/01-pydev-step-return.png"> **Step Return** - Single step the program, but return
   immediately to where the current function was called from. If the current function is the main program, exit the program.
  
-So, lets begin by clicking on the <img src="{{ site.github.url }}/fig/03-pydev-step-into.png"> **Step Into** button. When you do this,
+So, lets begin by clicking on the <img src="{{ site.github.url }}/fig/01-pydev-step-into.png"> **Step Into** button. When you do this,
 you'll notice that the `fib` function appears in the call stack, and we see the current line in the editor move to the first
 line of the function. Also, notice that the variables view has changed, and now shows the value of the argument `n` that
 was passed into the function.
 
-<img src="{{ site.github.url }}/fig/03-pydev-vars.png">
+<img src="{{ site.github.url }}/fig/01-pydev-vars.png">
 
-If we click on <img src="{{ site.github.url }}/fig/03-pydev-step-into.png"> again, we can see which branch of the `if`
+If we click on <img src="{{ site.github.url }}/fig/01-pydev-step-into.png"> again, we can see which branch of the `if`
 statement was taken (the second, since `n` is currently 10.) Keep clicking on 
-<img src="{{ site.github.url }}/fig/03-pydev-step-into.png">
+<img src="{{ site.github.url }}/fig/01-pydev-step-into.png">
 and you will see more and more entries for `fib` in the call stack. This is because the `fib` function is *recursive*, 
 i.e. it calls itself. We are interested in when `fib` is called with the value 2. Notice that when this happens, the
 `fib` function still takes the second branch of the `if` statement.
@@ -181,7 +181,7 @@ We know that the second element of the Fibonacci sequence is 1, so `fib(2)` shou
 return the value of `fib(1) + fib(0)` which will evaluate to 2 in our function. Our `if` statement
 should actually be `if n <= `**`2`**`:`.
 
-Now that we've finished debugging, we can click on the <img src="{{ site.github.url }}/fig/03-pydev-terminate.png"> 
+Now that we've finished debugging, we can click on the <img src="{{ site.github.url }}/fig/01-pydev-terminate.png"> 
 **Terminate** button to end the debug session. 
 
 ### Where To Go From Here?

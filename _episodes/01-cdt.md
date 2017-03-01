@@ -65,10 +65,12 @@ will automatically generate the Makefiles to build the project.
 : This is just another way of choosing either a C++ or C project.
 
 In this case, we're going to choose **C++ Project**. Once you select this option, you will see the C++ Project wizard.
-There are many settings that you can change on this wizard, but for now, just give your project a name (e.g. "my_project"). 
-You should also choose `Hello World C++ Project` from the `Executable` folder in the **Project type:** box.
 
 <img src="{{ site.github.url }}/fig/01-cdt-new.png" width="50%"/>
+
+There are many settings that you can change on this wizard, but for now, just give your project a name (e.g. "my_project"). 
+You should also choose `Hello World C++ Project` from the `Executable` folder in the **Project type:** box. Finally, select
+a toolchain compatible with your system (`MinGW GCC` for Windows, `MacOSX GCC` for Mac OS X, or `GCC` for Linux.) 
 
 When you're done, select the **Finish** button and you should see the project appear in the Project Explorer view.
 Clicking on the small triangle to the left of the project will open it. Open the `src` folder and you will see
@@ -114,35 +116,73 @@ in a Console view which popped up below the editor window.
 
 <img src="{{ site.github.url }}/fig/01-cdt-console.png">
 
+### Making Changes
+
+Let's add some code to the program so it does something more useful. First, let's create a new file called `func.cpp` by selecting
+**File** > **New** > **Source File**. This will open the *New Source File* wizard. 
+
+<img src="{{ site.github.url }}/fig/01-cdt-new-file.png">
+
+All you need to do is enter the name of the file in the `Source file:` field and click on **Finish**. The new file will automatically
+open an editor window. If you left the default C++ source template setting the same, then the file will have a comment at the beginning.
+
+Now enter the following code (or copy and paste if you already have it) below the comment.
+
+~~~
+// A function to increment its argument
+int func(int a) {
+	return a+1;
+}
+~~~
+{: .code}
+
+Save this file using **File** > **Save**, then select the `my_project.cpp` tab. Add an external declaration and call to `func()` as follows:
+
+~~~
+#include <iostream>
+using namespace std;
+
+extern int func(int);
+
+int main() {
+	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	int a = func(2);
+	cout << "func is " << a << endl;
+	return 0;
+}
+~~~
+{: .code}
+
+Compile the program again by clicking on the **Build** button (the hammer icon). Notice that you didn't need to make any changes
+to the Makefiles, CDT did this for you!
+
+Finally, run the program again to check the output reflects the changes you made.
+
 ### Fixing Bugs
 
-Let's run the same Python program, but this time under the control of a debugger. First, let's tell the debugger that
-we want to suspend execution when the `print(fib(10))` statement is about to be executed. To do this, we need to set a 
-*breakpoint* at line 13. Just point to the number `13` in the left hand margin and double click. You should now see a 
-breakpoint marker on the line.
-
-<img src="{{ site.github.url }}/fig/01-pydev-breakpoint.png">
-
-Now, to start the debugger just choose **Run** > **Debug**. The first time you do this, you will see the dialog
-below. This is just to warn you that the perspective is going to switch to the Debug perspective. If you want this
+Now, lets run the program, but this time under the control of a debugger. To start the debugger just choose **Run** > **Debug**. 
+The first time you do this, you will see the dialog below. This is just to warn you that the perspective is going to switch to the Debug perspective. If you want this
 to happen automatically in the future (and I would recommend doing so), check the box next to **Remember my decision** 
 and click on **Yes**.
 
-<img src="{{ site.github.url }}/fig/01-pydev-switch.png">
+<img src="{{ site.github.url }}/fig/01-cdt-switch.png">
 
-Whoa, everything just changed! Don't worry, this was supposed to happen. You are now in a Python debugger, and rather than
-having to launch a separate tool, PyDev has done it all for you. Here's what you should see:
+Whoa, everything just changed! Don't worry, this was supposed to happen. You are now in a C++ debugger, and rather than
+having to launch a separate tool, CDT has done it all for you. Here's what you should see:
 
-<img src="{{ site.github.url }}/fig/01-pydev-debug.png">
+<img src="{{ site.github.url }}/fig/01-cdt-debug.png">
+
+By default, the debugger will suspend the program at the first executable statement. This is line 14 in `my_project.cpp`.
 
 This looks a little complicated, but it is all layed out pretty logically:
 
 1. Across the top is a *toolbar* with a variety of debug commands. Well use some of these in a minute. 
 2. Below that is the **Debug** view (top left) which shows the current *call stack*. You can see that the line 
-   `<module> [my_module.py:13]` is highlighted, which tells you that the program is currently
-   suspended at line 13 of my_module.py (where we put the breakpoint.) This view is important for navigating up and down
+   `main() at my_project.cpp:14 0x100000f2d` is highlighted, which tells you that the program is currently
+   suspended at line 14 of my_project.cpp. This view is important for navigating up and down
    the call stack.
-3. To the right is the **Variables** view (top right) which shows all the local and global variables in the program.
+3. To the right is the **Variables** view (top right) which shows all the local and global variables in the program (currently
+   `res` has the value 0.)
 4. Behind the Variabls view, but not visible, is the **Breakpoints** view, which lists all the breakpoints you've set.
 5. Below the Debug view is the normal editor you're used to using. The editor has a marker in it showing the line
    at which the program is suspended, and this line is also highlighted.
@@ -150,39 +190,48 @@ This looks a little complicated, but it is all layed out pretty logically:
 7. Finally, at the bottom is the **Console** view that we've seen before (there are also some other views we're
    not going to discuss here.
   
-Now, in order to work out the bug, we're going to tell the program to execute statements one at a time so we can see
+Now, we're going to tell the program to execute statements one at a time so we can see
 what is going on. We do this by *single stepping* the program. There are three buttons on the toolbar that we can use
 to do this:
 
-* <img src="{{ site.github.url }}/fig/01-pydev-step-into.png"> **Step Into** - Single step the program, but when a function
+* <img src="{{ site.github.url }}/fig/01-cdt-step-into.png"> **Step Into** - Single step the program, but when a function
   call is encountered, step *into* the function.
-* <img src="{{ site.github.url }}/fig/01-pydev-step-over.png"> **Step Over** - Single step the program, but when a function
+* <img src="{{ site.github.url }}/fig/01-cdt-step-over.png"> **Step Over** - Single step the program, but when a function
   call is encountered, step *over* the function (i.e. execute the function as if it was a builtin function).
-* <img src="{{ site.github.url }}/fig/01-pydev-step-return.png"> **Step Return** - Single step the program, but return
-  immediately to where the current function was called from. If the current function is the main program, exit the program.
+* <img src="{{ site.github.url }}/fig/01-cdt-step-return.png"> **Step Return** - Single step the program, but return
+  immediately to where the current function was called from. Note that this is greyed out as we are at the top level
+  of the program and so there is nowhere to return to.
  
-So, lets begin by clicking on the <img src="{{ site.github.url }}/fig/01-pydev-step-into.png"> **Step Into** button. When you do this,
-you'll notice that the `fib` function appears in the call stack, and we see the current line in the editor move to the first
-line of the function. Also, notice that the variables view has changed, and now shows the value of the argument `n` that
+So, lets begin by clicking on the <img src="{{ site.github.url }}/fig/01-cdt-step-over.png"> **Step Over** button. When you do this,
+you'll notice that the current line moves to line 15. Since line 14 has just been executed, you should see the result printed in the console.
+
+<img src="{{ site.github.url }}/fig/01-cdt-debug2.png">
+
+Now we want to step *into* funtion `func`, so lets click on the <img src="{{ site.github.url }}/fig/01-cdt-step-into.png"> **Step Into** button.
+This will switch the editor to the `func.cpp` file and show that the current line is now line 9 in this file. The `func` function also appears in 
+the call stack, Notice that the variables view has changed, and now shows the value of the argument `a` that
 was passed into the function.
 
-<img src="{{ site.github.url }}/fig/01-pydev-vars.png">
+<img src="{{ site.github.url }}/fig/01-cdt-vars.png">
 
-If we click on <img src="{{ site.github.url }}/fig/01-pydev-step-into.png"> again, we can see which branch of the `if`
-statement was taken (the second, since `n` is currently 10.) Keep clicking on 
-<img src="{{ site.github.url }}/fig/01-pydev-step-into.png">
-and you will see more and more entries for `fib` in the call stack. This is because the `fib` function is *recursive*, 
-i.e. it calls itself. We are interested in when `fib` is called with the value 2. Notice that when this happens, the
-`fib` function still takes the second branch of the `if` statement.
+Now if we click on the <img src="{{ site.github.url }}/fig/01-cdt-step-return.png"> **Step Return* button, we will be taken back to the
+main program. Notice that the variables view shows the result from the function as well as the current value of `res` in the variables view.
+Press <img src="{{ site.github.url }}/fig/01-cdt-step-over.png"> **Step Over** a one more time and observe what happens.
 
-AHA!
-
-We know that the second element of the Fibonacci sequence is 1, so `fib(2)` should return the value 1. Instead, it will
-return the value of `fib(1) + fib(0)` which will evaluate to 2 in our function. Our `if` statement
-should actually be `if n <= `**`2`**`:`.
-
-Now that we've finished debugging, we can click on the <img src="{{ site.github.url }}/fig/01-pydev-terminate.png"> 
+Now that we've finished debugging, we can click on the <img src="{{ site.github.url }}/fig/01-cdt-terminate.png"> 
 **Terminate** button to end the debug session. 
+
+> ## Breakpoints
+>
+> Suppose we have a good idea where we want to start looking for bugs rather than stepping through the whole program. The way to do this is
+> by setting a *breakpoint*. To do this, just point to the line number in the left hand margin of the file you wish to suspend execution of 
+> the program (e.g. line 9 in `func.cpp`) and double click. You should now see a  breakpoint marker appear next to the number.
+> 
+> <img src="{{ site.github.url }}/fig/01-cdt-breakpoint.png">
+>
+> Once you start the debug session, you can then click on the <img src="{{ site.github.url }}/fig/01-cdt-resumer.png"> **Resume** button, and 
+> the program will execute until the breakpoint is encountered. Try this by setting a breakpoint at line 9 of `func.cpp` and see what happens.
+{: .challenge}
 
 ### Where To Go From Here?
 

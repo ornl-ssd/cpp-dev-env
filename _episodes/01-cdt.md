@@ -240,11 +240,10 @@ Now that we've finished debugging, we can click on the <img src="{{ site.github.
 
 ### Where To Go From Here?
 
-* [The PyDev homepage](http://pydev.org)
-* [The PyDev user manual](http://www.pydev.org/manual.html)
-* [A blog that has information on PyDev development](http://pydev.blogspot.com)
-* [PyDev bug tracker](https://sw-brainwy.rhcloud.com)
-* [PyDev feature requests](https://sw-brainwy.rhcloud.com)
-* [Source code](https://github.com/fabioz/Pydev)
-* If you have questions, [StackOverflow (with the PyDev tag)](http://stackoverflow.com/questions/tagged/pydev)
+* [The CDT homepage](http://eclipse.org/cdt)
+* [The CDT user manual](http://help.eclipse.org/neon/topic/org.eclipse.cdt.doc.user/concepts/cdt_o_home.htm?cp=8)
+* [The CDT wiki](https://wiki.eclipse.org/CDT)
+* [CDT project information](https://projects.eclipse.org/projects/tools.cdt)
+* [Source code](https://git.eclipse.org/c/cdt)
+* If you have questions, [the CDT forum](https://www.eclipse.org/forums/?group=eclipse.tools.cdt)
  

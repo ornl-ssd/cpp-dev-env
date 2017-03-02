@@ -234,7 +234,7 @@ Now that we've finished debugging, we can click on the <img src="{{ site.github.
 > <img src="{{ site.github.url }}/fig/01-cdt-breakpoint.png">
 >
 > Once you start the debug session, the program will be suspended at the first executable line. To continue execution to the breakpoint, click on the 
-> <img src="{{ site.github.url }}/fig/01-cdt-resumer.png"> **Resume** button, and the program will execute until the breakpoint is encountered. 
+> <img src="{{ site.github.url }}/fig/01-cdt-resume.png"> **Resume** button, and the program will execute until the breakpoint is encountered. 
 > Try this by setting a breakpoint at line 9 of `func.cpp` and see what happens.
 {: .challenge}
 

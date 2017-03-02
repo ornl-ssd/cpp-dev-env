@@ -121,7 +121,7 @@ in a Console view which popped up below the editor window.
 Let's add some code to the program so it does something more useful. First, let's create a new file called `func.cpp` by selecting
 **File** > **New** > **Source File**. This will open the *New Source File* wizard. 
 
-<img src="{{ site.github.url }}/fig/01-cdt-new2.png" width="30%">
+<img src="{{ site.github.url }}/fig/01-cdt-new2.png" width="50%">
 
 All you need to do is enter the name of the file in the `Source file:` field and click on **Finish**. The new file will automatically
 open an editor window. If you left the default C++ source template setting the same, then the file will have a comment at the beginning.
@@ -216,9 +216,10 @@ was passed into the function.
 
 Now if we click on the <img src="{{ site.github.url }}/fig/01-cdt-step-return.png"> **Step Return** button, we will be taken back to the
 main program. Notice that the variables view shows the result from the function as well as the current value of `res` in the variables view.
-Press <img src="{{ site.github.url }}/fig/01-cdt-step-over.png"> **Step Over** a one more time and observe what happens.
 
 <img src="{{ site.github.url }}/fig/01-cdt-debug4.png" width="75%">
+
+Press <img src="{{ site.github.url }}/fig/01-cdt-step-over.png"> **Step Over** a one more time and observe what happens.
 
 Now that we've finished debugging, we can click on the <img src="{{ site.github.url }}/fig/01-cdt-terminate.png"> 
 **Terminate** button to end the debug session. 
@@ -227,12 +228,14 @@ Now that we've finished debugging, we can click on the <img src="{{ site.github.
 >
 > Suppose we have a good idea where we want to start looking for bugs rather than stepping through the whole program. The way to do this is
 > by setting a *breakpoint*. To do this, just point to the line number in the left hand margin of the file you wish to suspend execution of 
-> the program (e.g. line 9 in `func.cpp`) and double click. You should now see a  breakpoint marker appear next to the number.
+> the program (e.g. line 9 in `func.cpp`) and double click. You should now see a  breakpoint marker appear next to the number. You can do this
+> either before or after starting the debug session, and from either the C/C++ or Debug perspectives.
 > 
 > <img src="{{ site.github.url }}/fig/01-cdt-breakpoint.png">
 >
-> Once you start the debug session, you can then click on the <img src="{{ site.github.url }}/fig/01-cdt-resumer.png"> **Resume** button, and 
-> the program will execute until the breakpoint is encountered. Try this by setting a breakpoint at line 9 of `func.cpp` and see what happens.
+> Once you start the debug session, the program will be suspended at the first executable line. To continue execution to the breakpoint, click on the 
+> <img src="{{ site.github.url }}/fig/01-cdt-resumer.png"> **Resume** button, and the program will execute until the breakpoint is encountered. 
+> Try this by setting a breakpoint at line 9 of `func.cpp` and see what happens.
 {: .challenge}
 
 ### Where To Go From Here?

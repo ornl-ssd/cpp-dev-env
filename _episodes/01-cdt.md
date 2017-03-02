@@ -244,6 +244,6 @@ Now that we've finished debugging, we can click on the <img src="{{ site.github.
 * [The CDT user manual](http://help.eclipse.org/neon/topic/org.eclipse.cdt.doc.user/concepts/cdt_o_home.htm?cp=8)
 * [The CDT wiki](https://wiki.eclipse.org/CDT)
 * [CDT project information](https://projects.eclipse.org/projects/tools.cdt)
-* [Source code](https://git.eclipse.org/c/cdt)
-* If you have questions, [the CDT forum](https://www.eclipse.org/forums/?group=eclipse.tools.cdt)
+* [Source code](https://git.eclipse.org/c/cdt/org.eclipse.cdt.git/)
+* If you have questions, [the CDT forum](https://www.eclipse.org/forums/index.php/f/80/)
  

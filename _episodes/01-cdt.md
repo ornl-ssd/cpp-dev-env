@@ -1,5 +1,5 @@
 ---
-title: "C/C++ Development Tools"
+title: "C/C++ Development Tools (CDT)"
 teaching: 30
 exercises: 0
 questions:

@@ -170,7 +170,7 @@ and click on **Yes**.
 Whoa, everything just changed! Don't worry, this was supposed to happen. You are now in a C++ debugger, and rather than
 having to launch a separate tool, CDT has done it all for you. Here's what you should see:
 
-<img src="{{ site.github.url }}/fig/01-cdt-debug.png" width="80%">
+<img src="{{ site.github.url }}/fig/01-cdt-debug.png" width="85%">
 
 By default, the debugger will suspend the program at the first executable statement. This is line 14 in `my_project.cpp`.
 
@@ -205,19 +205,19 @@ to do this:
 So, lets begin by clicking on the <img src="{{ site.github.url }}/fig/01-cdt-step-over.png"> **Step Over** button. When you do this,
 you'll notice that the current line moves to line 15. Since line 14 has just been executed, you should see the result printed in the console.
 
-<img src="{{ site.github.url }}/fig/01-cdt-debug2.png" width="80%">
+<img src="{{ site.github.url }}/fig/01-cdt-debug2.png" width="85%">
 
 Now we want to step *into* funtion `func`, so lets click on the <img src="{{ site.github.url }}/fig/01-cdt-step-into.png"> **Step Into** button.
 This will switch the editor to the `func.cpp` file and show that the current line is now line 9 in this file. The `func` function also appears in 
 the call stack, Notice that the variables view has changed, and now shows the value of the argument `a` that
 was passed into the function.
 
-<img src="{{ site.github.url }}/fig/01-cdt-debug3.png" width="80%">
+<img src="{{ site.github.url }}/fig/01-cdt-debug3.png" width="85%">
 
 Now if we click on the <img src="{{ site.github.url }}/fig/01-cdt-step-return.png"> **Step Return** button, we will be taken back to the
 main program. Notice that the variables view shows the result from the function as well as the current value of `res` in the variables view.
 
-<img src="{{ site.github.url }}/fig/01-cdt-debug4.png" width="80%">
+<img src="{{ site.github.url }}/fig/01-cdt-debug4.png" width="85%">
 
 Press <img src="{{ site.github.url }}/fig/01-cdt-step-over.png"> **Step Over** a one more time and observe what happens.
 
